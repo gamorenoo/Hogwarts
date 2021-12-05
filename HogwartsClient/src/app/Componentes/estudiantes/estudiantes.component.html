@@ -1,0 +1,71 @@
+<br>
+<!-- Modo Principal -->
+<div class="d-grid gap-2 d-md-block">
+    <button type="button" class="btn btn-primary btn-sm" (click)="verEstudiantes()">Estudiantes</button>
+    <button type="button" class="btn btn-secondary btn-sm" (click)="verNuevosEstudiantes()" style="margin-left: 10px;">Solicitudes de Estudiantes</button>
+</div>
+<br>
+<div *ngIf="modeMain">
+    <app-table-person [personas]="estudiantes"></app-table-person>
+</div>
+
+<!-- Modo formulario -->
+<div *ngIf="!modeMain">
+    <form [formGroup]="formSolicitud" (onSubmit)="crearSolicitud()">
+        <div class="row">
+            <div class="col-md-2">
+                <label for="InputIdentificacion" class="form-label">Identificacion</label>
+                <input type="number" maxlength="10" formControlName="identificacion" class="form-control form-control-sm" />
+            </div>
+            <div class="col-md-3">
+                <label for="InputNombre" class="form-label">Nombre</label>
+                <input type="text" maxlength="20" formControlName="nombre" class="form-control form-control-sm" />
+            </div>
+            <div class="col-md-3">
+                <label for="InputApellido" class="form-label">Apellidos</label>
+                <input type="text" maxlength="20" formControlName="apellido" class="form-control form-control-sm" />
+            </div>
+            <div class="col-md-2">
+                <label for="InputEdad" class="form-label">Edad</label>
+                <input type="number" maxlength="2" formControlName="edad" class="form-control form-control-sm" />
+            </div>
+            <div class="col-md-2">
+                <label for="InputCasa" class="form-label">Casa</label>
+                <app-custom-select id="customSelectComponent" #customSelect (onListSelection)="onListSelection($event)"></app-custom-select>
+            </div>
+            <div class="col-md-2">
+                <button type="button" [disabled]="!formSolicitud.valid" (click)="crearSolicitud()" class="btn btn-primary btn-sm">Registrar</button>
+            </div>
+
+            <div class="col-md-10">
+                <div *ngIf="verError" class="alert alert-danger" role="alert">
+                    {{mensajeError}}
+                </div>
+            </div>
+        </div>
+        <br>
+    </form>
+    <hr>
+    <br>
+    <h5>Lista de solicitudes</h5>
+    <table id="tablePersonajes" class="table table-striped table-bordered table-sm dtBasicExample" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th class="th-sm">Identificacion</th>
+                <th class="th-sm">Nombre</th>
+                <th class="th-sm">Apellido</th>
+                <th class="th-sm">Edad</th>
+                <th class="th-sm">Casa</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let solicitud of solicitudes">
+                <td> {{ solicitud.identificacion }} </td>
+                <td> {{ solicitud.nombre }} </td>
+                <td> {{ solicitud.apellido }} </td>
+                <td> {{ solicitud.edad }} </td>
+                <td> {{ solicitud.casa }} </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
