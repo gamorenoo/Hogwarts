@@ -1,0 +1,490 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>HogwartsApi</name>
+    </assembly>
+    <members>
+        <member name="T:HogwartsApi.Application.SolicitudAppService">
+            <summary>
+            Servicio de aplicación para la administracion de solicitudes
+            </summary>
+        </member>
+        <member name="F:HogwartsApi.Application.SolicitudAppService._mapper">
+            <summary>
+            Mapper
+            </summary>
+        </member>
+        <member name="F:HogwartsApi.Application.SolicitudAppService._solicitudDomainService">
+            <summary>
+            Servicio de dominio de solicitudes
+            </summary>
+        </member>
+        <member name="M:HogwartsApi.Application.SolicitudAppService.#ctor(HogwartsApi.Domain.Services.SolicitudDomainService,AutoMapper.IMapper)">
+            <summary>
+            Constructor de la clase
+            </summary>
+            <param name="solicitudDomainService"></param>
+            <param name="mapper"></param>
+        </member>
+        <member name="M:HogwartsApi.Application.SolicitudAppService.Add(HogwartsApi.DTOs.SolicitudDto)">
+            <summary>
+            Crea/Registra una solicitud
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HogwartsApi.Application.SolicitudAppService.Update(HogwartsApi.DTOs.SolicitudDto)">
+            <summary>
+            Actualiza una solicitud
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HogwartsApi.Application.SolicitudAppService.Get(System.Guid)">
+            <summary>
+            Obtiene una solicitud por su id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HogwartsApi.Application.SolicitudAppService.Get">
+            <summary>
+            Obtiene todas las solicitudes
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HogwartsApi.Application.SolicitudAppService.Delete(System.Guid)">
+            <summary>
+            Elimina una solicitud
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:HogwartsApi.Automapper.GlobalMapperProfile">
+            <summary>
+            Automapper
+            </summary>
+        </member>
+        <member name="M:HogwartsApi.Automapper.GlobalMapperProfile.#ctor">
+            <summary>
+            Inicia una nueva instancia del perfil
+            </summary>
+        </member>
+        <member name="T:HogwartsApi.Controllers.SolicitudController">
+            <summary>
+            Controlador de solicitudes
+            </summary>
+        </member>
+        <member name="F:HogwartsApi.Controllers.SolicitudController._solicitudAppService">
+            <summary>
+            Servicio de aplicacion de prestamos
+            </summary>
+        </member>
+        <member name="M:HogwartsApi.Controllers.SolicitudController.#ctor(HogwartsApi.Application.SolicitudAppService)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="solicitudAppService"></param>
+        </member>
+        <member name="M:HogwartsApi.Controllers.SolicitudController.Get">
+            <summary>
+            Obtiene las solicitudes
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HogwartsApi.Controllers.SolicitudController.Get(System.Guid)">
+            <summary>
+            Obtiene un solicitud por su id
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HogwartsApi.Controllers.SolicitudController.Post(HogwartsApi.DTOs.SolicitudDto)">
+            <summary>
+            Crea una solicitud
+            </summary>
+            <param name="solicitud"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HogwartsApi.Controllers.SolicitudController.Put(HogwartsApi.DTOs.SolicitudDto)">
+            <summary>
+            Actualiza una solicitud
+            </summary>
+            <param name="solicitud"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HogwartsApi.Controllers.SolicitudController.Delete(System.Guid)">
+            <summary>
+            Elimina una solicitud
+            </summary>
+            <param name="idSolicitud"></param>
+            <returns></returns>
+        </member>
+        <member name="T:HogwartsApi.DataAccess.ApiDBContext">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:HogwartsApi.DataAccess.ApiDBContext.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions{HogwartsApi.DataAccess.ApiDBContext})">
+            <summary>
+            
+            </summary>
+            <param name="options"></param>
+        </member>
+        <member name="M:HogwartsApi.DataAccess.ApiDBContext.CommitAsync">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HogwartsApi.DataAccess.ApiDBContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <summary>
+            
+            </summary>
+            <param name="modelBuilder"></param>
+        </member>
+        <member name="T:HogwartsApi.DataAccess.Repositories.GenericRepository`1">
+            <summary>
+            Administracion generica del Repositorio
+            </summary>
+            <typeparam name="TEntity"></typeparam>
+        </member>
+        <member name="M:HogwartsApi.DataAccess.Repositories.GenericRepository`1.#ctor(HogwartsApi.DataAccess.ApiDBContext)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="ApiDBcontext"></param>
+        </member>
+        <member name="M:HogwartsApi.DataAccess.Repositories.GenericRepository`1.Add(`0)">
+            <summary>
+            Agrega un registros
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HogwartsApi.DataAccess.Repositories.GenericRepository`1.AddRange(System.Collections.Generic.List{`0})">
+            <summary>
+             Agrega un rango de registros
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HogwartsApi.DataAccess.Repositories.GenericRepository`1.Delete(`0)">
+            <summary>
+            Borra registros
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HogwartsApi.DataAccess.Repositories.GenericRepository`1.Get(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Ontiene un registro
+            </summary>
+            <param name="filter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HogwartsApi.DataAccess.Repositories.GenericRepository`1.GetList(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Ontiene na lista de registros
+            </summary>
+            <param name="filter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HogwartsApi.DataAccess.Repositories.GenericRepository`1.Update(`0)">
+            <summary>
+            Actualiza registros
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HogwartsApi.DataAccess.Repositories.GenericRepository`1.UpdateRange(System.Collections.Generic.List{`0})">
+            <summary>
+            Actualiza un rango de registros
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="T:HogwartsApi.DataAccess.Repositories.IRepositories.IGenericRepository`1">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:HogwartsApi.DataAccess.Repositories.IRepositories.IGenericRepository`1.Get(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Ontiene un registro
+            </summary>
+            <param name="filter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HogwartsApi.DataAccess.Repositories.IRepositories.IGenericRepository`1.GetList(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Ontiene na lista de registros
+            </summary>
+            <param name="filter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HogwartsApi.DataAccess.Repositories.IRepositories.IGenericRepository`1.Add(`0)">
+            <summary>
+            Agrega un registros
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HogwartsApi.DataAccess.Repositories.IRepositories.IGenericRepository`1.Update(`0)">
+            <summary>
+            Actualiza registros
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HogwartsApi.DataAccess.Repositories.IRepositories.IGenericRepository`1.Delete(`0)">
+            <summary>
+            Borra registros
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HogwartsApi.DataAccess.Repositories.IRepositories.IGenericRepository`1.AddRange(System.Collections.Generic.List{`0})">
+            <summary>
+            Agrega un rango de registros
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HogwartsApi.DataAccess.Repositories.IRepositories.IGenericRepository`1.UpdateRange(System.Collections.Generic.List{`0})">
+            <summary>
+            Actualiza un rango de registros
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="T:HogwartsApi.DI.DependencyInjectionProfile">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:HogwartsApi.DI.DependencyInjectionProfile.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            
+            </summary>
+            <param name="configuration"></param>
+        </member>
+        <member name="M:HogwartsApi.DI.DependencyInjectionProfile.InjectDependencies(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="T:HogwartsApi.Domain.Entities.Solicitud">
+            <summary>
+            Solicitud de ingreso
+            </summary>
+        </member>
+        <member name="P:HogwartsApi.Domain.Entities.Solicitud.Id">
+            <summary>
+            Identificador solicitud
+            </summary>
+        </member>
+        <member name="P:HogwartsApi.Domain.Entities.Solicitud.Nombre">
+            <summary>
+            Nombre solicitante
+            </summary>
+        </member>
+        <member name="P:HogwartsApi.Domain.Entities.Solicitud.Apellido">
+            <summary>
+            Apellido solicitante
+            </summary>
+        </member>
+        <member name="P:HogwartsApi.Domain.Entities.Solicitud.Identificacion">
+            <summary>
+            Número de identificación solicitante
+            </summary>
+        </member>
+        <member name="P:HogwartsApi.Domain.Entities.Solicitud.Edad">
+            <summary>
+            Edad del solcitante
+            </summary>
+        </member>
+        <member name="P:HogwartsApi.Domain.Entities.Solicitud.Casa">
+            <summary>
+            Casa a la que aspira pertenecer
+            0 => Gryffindor
+            1 => Hufflepuff
+            2 => Ravenclaw
+            3 => Slytherin
+            </summary>
+        </member>
+        <member name="T:HogwartsApi.Domain.Entities.Casas">
+            <summary>
+            Casas
+            </summary>
+        </member>
+        <member name="F:HogwartsApi.Domain.Entities.Casas.gryffindor">
+            <summary>
+            Gryffindor
+            </summary>
+        </member>
+        <member name="F:HogwartsApi.Domain.Entities.Casas.hufflepuff">
+            <summary>
+            Hufflepuff
+            </summary>
+        </member>
+        <member name="F:HogwartsApi.Domain.Entities.Casas.ravenclaw">
+            <summary>
+            Ravenclaw
+            </summary>
+        </member>
+        <member name="F:HogwartsApi.Domain.Entities.Casas.slytherin">
+            <summary>
+            Slytherin
+            </summary>
+        </member>
+        <member name="T:HogwartsApi.Domain.Services.SolicitudDomainService">
+            <summary>
+            Servicio de dominio para la administracion de solicitudes
+            </summary>
+        </member>
+        <member name="F:HogwartsApi.Domain.Services.SolicitudDomainService._solicitudRepository">
+            <summary>
+            Repositorio de solicitudes
+            </summary>
+        </member>
+        <member name="M:HogwartsApi.Domain.Services.SolicitudDomainService.#ctor(HogwartsApi.DataAccess.Repositories.IRepositories.IGenericRepository{HogwartsApi.Domain.Entities.Solicitud})">
+            <summary>
+            Constructor de la clase
+            </summary>
+            <param name="solicitudRepository"></param>
+        </member>
+        <member name="M:HogwartsApi.Domain.Services.SolicitudDomainService.Add(HogwartsApi.Domain.Entities.Solicitud)">
+            <summary>
+            Crea/Registra una solicitud
+            </summary>
+            <param name="solicitud"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HogwartsApi.Domain.Services.SolicitudDomainService.Update(HogwartsApi.Domain.Entities.Solicitud)">
+            <summary>
+            Actualiza una solicitud
+            </summary>
+            <param name="solicitud"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HogwartsApi.Domain.Services.SolicitudDomainService.Get">
+            <summary>
+            Obtiene las solicitudes
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HogwartsApi.Domain.Services.SolicitudDomainService.Get(System.Guid)">
+            <summary>
+            Obtiene una solicitud por su id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HogwartsApi.Domain.Services.SolicitudDomainService.Delete(System.Guid)">
+            <summary>
+            Elimina una solicitud
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HogwartsApi.Domain.Services.SolicitudDomainService.validarIdentificacion(System.Int64)">
+            <summary>
+            Valida que la identificacion tenga de 10 digitos o menos
+            </summary>
+            <param name="Identificacion">Numero a valida</param>
+            <returns></returns>
+        </member>
+        <member name="M:HogwartsApi.Domain.Services.SolicitudDomainService.validarEdad(System.Int16)">
+            <summary>
+            Valida que la identificacion tenga de 10 digitos o menos
+            </summary>
+            <param name="Edad">Numero a valida</param>
+            <returns></returns>
+        </member>
+        <member name="T:HogwartsApi.DTOs.SolicitudDto">
+            <summary>
+            DTO de Solicitudes
+            </summary>
+        </member>
+        <member name="P:HogwartsApi.DTOs.SolicitudDto.Id">
+            <summary>
+            Identificador solicitud
+            </summary>
+        </member>
+        <member name="P:HogwartsApi.DTOs.SolicitudDto.Nombre">
+            <summary>
+            Nombre solicitante
+            </summary>
+        </member>
+        <member name="P:HogwartsApi.DTOs.SolicitudDto.Apellido">
+            <summary>
+            Apellido solicitante
+            </summary>
+        </member>
+        <member name="P:HogwartsApi.DTOs.SolicitudDto.Identificacion">
+            <summary>
+            Número de identificación solicitante
+            </summary>
+        </member>
+        <member name="P:HogwartsApi.DTOs.SolicitudDto.Edad">
+            <summary>
+            Edad del solcitante
+            </summary>
+        </member>
+        <member name="P:HogwartsApi.DTOs.SolicitudDto.Casa">
+            <summary>
+            Casa a la que aspira pertenecer
+            0 => Gryffindor
+            1 => Hufflepuff
+            2 => Ravenclaw
+            3 => Slytherin
+            </summary>
+        </member>
+        <member name="T:HogwartsApi.Program">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:HogwartsApi.Program.Main(System.String[])">
+            <summary>
+            
+            </summary>
+            <param name="args"></param>
+        </member>
+        <member name="M:HogwartsApi.Program.CreateHostBuilder(System.String[])">
+            <summary>
+            
+            </summary>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="T:HogwartsApi.Startup">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:HogwartsApi.Startup.Configuration">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:HogwartsApi.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            
+            </summary>
+            <param name="configuration"></param>
+        </member>
+        <member name="M:HogwartsApi.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="M:HogwartsApi.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            
+            </summary>
+            <param name="app"></param>
+            <param name="env"></param>
+        </member>
+    </members>
+</doc>
